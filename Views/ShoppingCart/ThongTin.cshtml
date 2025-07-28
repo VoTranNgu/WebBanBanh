@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<style>
+    body {
+        font-family: "Poppins", sans-serif; /* Choose a suitable font */
+        background-image: url(cake.jpg);
+    }
+    .field-validation-error {
+        color: red;
+    }
+    .btn1 {
+        display: inline-block;
+        margin-top: 1rem;
+        border-radius: 5rem;
+        background: #333;
+        color: #fff;
+        padding: .9rem 3.5rem;
+        font-size: 1.7rem;
+        font-weight: 700;
+    }
+
+        .btn1:hover {
+            background: var(--pink);
+        }
+</style>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @model DoAnCuoiKi.Models.AdminUser
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/TrangChu.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap5/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="m-4">
+        <section class="contact" id="contact">
+            <h1 class="heading"> <span> Giao </span> hàng </h1>
+            <div class="row">
+                <form action="">
+                    <input type="text" placeholder="Họ và tên..." class="box">
+                    <input type="number" placeholder="Số điện thoại..." class="box">
+                    <input type="text" placeholder="Ghi chú..." class="box">
+                    <textarea name="" class="box" placeholder="Địa chỉ..." id="" cols="30" rows="10"></textarea>
+                    <a href="/ShoppingCart/Form2" class="btn1"> Xác nhận </a>
+                </form>
+                <div class="image">
+                    <img src="~/images/xe.jpg" alt="">
+                </div>
+            </div>
+        </section>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <section class="footer">
+        <hr color="black" width=auto size="5px" align="center" />
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="/SweetShop/trangchu#home">home</a>
+                <a href="/SweetShop/trangchu#about">about</a>
+                <a href="/SweetShop/trangchu#menu">hot</a>
+                <a href="/SweetShop/trangchu#review">review</a>
+                <a href="/SweetShop/trangchu#contact">contact</a>
+                <a href="/Product/Index">Menu</a>
+
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="/LoginUser/Index">my account</a>
+                <a href="/ShoppingCart/ShowCart">my order</a>
+                <a href="/Favourite/ShowFavourite">my favourite</a>
+            </div>
+
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">TP. Hồ Chí Minh</a>
+                <a href="#">Hà Nội</a>
+                <a href="#">Đà Lạt</a>
+                <a href="#">Thừa Thiên Huế</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+84-329-343-390</a>
+                <a href="#">cake@gmail.com</a>
+                <a href="#">828 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh.</a>
+                <img src="~/images/1.png" alt="">
+            </div>
+        </div>
+
+        <div class="credit"><span>C A K E </span>- Không chỉ ngon mà còn phải đẹp.</div>
+
+
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+
+

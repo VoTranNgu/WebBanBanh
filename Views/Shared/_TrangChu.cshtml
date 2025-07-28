@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+    </script>
+    <link rel="stylesheet" href="~/Content/TrangChu.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        <a href="#" class="logo">Savor & Sweet<span>.</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Hot</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+        <div class="icon">
+            <a href="/Favourite/ShowFavourite"><i class='bx bxs-heart'></i></a>
+            <a href="/ShoppingCart/ShowCart"><i class='bx bx-shopping-bag'></i></a>
+            <a href="/LoginUser/Index"><i class='bx bxs-user'></i></a>
+            <a href="@Url.Action("LogOutUser","LoginUser")"><img src="~/images/out.png" /></a>
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="content">
+            <b><h3>C A K E</h3></b>
+            <b><span>Healthy and Delicious</span></b>
+            <p><font style="font-size:2rem;color: black;">Hơn 5 năm không ngừng phát triển, C A K E - "Bánh tươi mỗi ngày" với sứ mệnh xuyên suốt mang đến khách hàng những sản phẩm dinh dưỡng - an toàn - tự nhiên tốt cho sức khỏe người dùng.</font></p>
+            <a href="/Product/Index" class="btn">Shop Now</a>
+        </div>
+
+    </section>
+    <section class="about" id="about">
+        <h1 class="heading"> About <span> us</span> </h1>
+        <div class="row">
+            <div class="video-container">
+                <video src="~/images/pexels-los-muertos-crew-8477935 (1080p).mp4" class="video" loop autoplay muted></video>
+                <h3>Best cake sellers</h3>
+            </div>
+            <div class="Content-About">
+                <h3><font style="font-size:4rem;color: #000000;">Why choose us?</font></h3>
+                <p>
+                    Bánh ngọt là một món ăn giúp xoa dịu tâm hồn.
+                    Những món bánh ngọt giống như một nốt trầm nhẹ, mang đến sự bình yên trong ẩm thực của mỗi con người.
+                </p>
+                <p>
+                    Người ta thường dùng bánh ngọt để diễn tả niềm hạnh phúc.
+                    Dễ dàng bắt gặp ánh mắt ngập tràn niềm vui của những người cắt bánh sinh nhật, sự đồng điệu của những người cắt bánh cưới, sự vui vẻ, hồ hởi của bất cứ ai khi nhận được quà là một món bánh xinh.
+                </p>
+                <a href="#" class="bnt"><font style="font-size:2rem"> Learn more</font></a>
+            </div>
+        </div>
+        <div class="icons-container">
+            <div class="icons">
+                <div class="info">
+                    <img src="~/images/icon-1.png" alt="">
+                    <h3>Free delivery<br><span style="color: #555!important; font-size: 1rem!important;">On all orders</span></h3>
+                </div>
+            </div>
+            <div class="icons">
+                <div class="info">
+                    <img src="~/images/icon-5.png" alt="">
+                    <h3>10 days returns <br><span style="color: #555!important; font-size: 1rem!important;">Moneyback guarantee</span></h3>
+
+                </div>
+            </div>
+
+            <div class="icons">
+                <div class="info">
+                    <img src="~/images/icon-3.png" alt="">
+                    <h3>Offer & gifts<br><span style="color: #555!important; font-size: 1rem!important;">On all orders</span></h3>
+
+                </div>
+            </div>
+
+            <div class="icons">
+                <div class="info">
+                    <img src="~/images/icon-4.png" alt="">
+                    <h3>Secure paymens<br><span style="color: #555!important; font-size: 1rem!important;">Protected by paypal </span></h3>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="menu">
+        <h1 class="heading"> lastest <span>cakes</span> </h1>
+        <div class="div_container_listCake">
+            <div class="list list-1">
+                <img src="~/images/1.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Fruit Cake</h1>
+                    <p class="price-cake">12.99 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+            <div class="list list-2">
+                <img src="~/images/2.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Stawberry Cake</h1>
+                    <p class="price-cake">10.5 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+            <div class="list list-3">
+                <img src="~/images/3.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Mousse Cake</h1>
+                    <p class="price-cake">20.5 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+        </div>
+        <div class="div_container_listCake">
+            <div class="list list-4">
+                <img src="~/images/4.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Chocolate Cake</h1>
+                    <p class="price-cake">20.5 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+            <div class="list list-5">
+                <img src="~/images/5.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Maracon Cake</h1>
+                    <p class="price-cake">10.55 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+            <div class="list list-6">
+                <img src="~/images/6.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Tiramisu Cake</h1>
+                    <p class="price-cake">12.99 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+        </div>
+        <div class="div_container_listCake">
+            <div class="list list-7">
+                <img src="~/images/7.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Red Velvet Cake</h1>
+                    <p class="price-cake">25.99 <i class="fa-brands fa-dollar"></i></p>
+                </div>
+            </div>
+            <div class="list list-8">
+                <img src="~/images/8.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Egg Tart</h1>
+                    <p class="price-cake">10.99 <i class="fa-brands fa-dollar"></i> </p>
+                </div>
+            </div>
+            <div class="list list-9">
+                <img src="~/images/9.jpg" alt="lastestCake-1" class="lastestCake-img">
+                <div class="info-cake">
+                    <div class="icon-cake">
+                        <a href="/Product/Index">
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    </div>
+                    <h1 class="head-cake">Croissant Cake</h1>
+                    <p class="price-cake">15.99 <i class="fa-brands fa-dollar"></i> </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_container_Review" id="review">
+        <h1 class="heading"> Customer's <span>Review</span> </h1>
+        <div class="box-container">
+            <div class="box">
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Tiệm bánh này thật sự tuyệt vời! Bánh ngọt ở đây rất ngon và thơm, chất lượng sản phẩm luôn được đảm bảo.
+                    Tôi yêu món bánh socola của họ, nó thật ngọt ngào và lớp vỏ socola bên ngoài giòn tan.
+                    Điều này làm cho mỗi lần ghé tiệm đều là một trải nghiệm đáng nhớ.
+                </p>
+                <div class="user">
+                    <img src="~/images/11.png" alt="Review-1" class="Review-png">
+                    <div class="user-info">
+                        <h3>Jessy Mie</h3>
+                        <span>Happy Customer</span>
+                    </div>
+                </div>
+                <span class="fas fa-quote-right"></span>
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Giá cả tại tiệm bánh này rất hợp lý, đặc biệt khi bạn cân nhắc chất lượng của bánh và dịch vụ mà bạn nhận được.
+                    Đặc biệt, bánh red velvet ở đây là phải thử, mềm mịn và kem tươi ngon tuyệt!
+                    Mỗi lần tôi đến đây, tôi cảm thấy mình đã đầu tư vào một trải nghiệm ẩm thực đáng giá.
+                </p>
+                <div class="user">
+                    <img src="~/images/12.png" alt="Review-1" class="Review-png">
+                    <div class="user-info">
+                        <h3>John Doe</h3>
+                        <span>Happy Customer</span>
+                    </div>
+                </div>
+                <span class="fas fa-quote-right"></span>
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Bánh ngọt tại tiệm này thật sự làm tôi nghiện! Tôi đã thử nhiều loại bánh khác nhau ở đây và tất cả đều xuất sắc.
+                    Nhân viên ở đây luôn sẵn sàng tư vấn về các loại bánh và đáp ứng mọi nhu cầu của khách hàng.
+                    Điều này tạo cho tôi cảm giác rất thoải mái và hài lòng.
+                </p>
+                <div class="user">
+                    <img src="~/images/13.png" alt="Review-1" class="Review-png">
+                    <div class="user-info">
+                        <h3>Laly Jay</h3>
+                        <span>Happy Customer</span>
+                    </div>
+                </div>
+                <span class="fas fa-quote-right"></span>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+        <h1 class="heading"> <span> contact </span> us </h1>
+        <div class="row">
+            <form action="">
+                <input type="text" placeholder="name" class="box">
+                <input type="email" placeholder="email" class="box">
+                <input type="number" placeholder="number" class="box">
+                <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="send message" class="btn">
+            </form>
+            <div class="image">
+                <img src="~/images/contact.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    @RenderBody()
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home">home</a>
+                <a href="#about">about</a>
+                <a href="#menu">hot</a>
+                <a href="#review">review</a>
+                <a href="#contact">contact</a>
+                <a href="/Product/Index">menu</a>
+
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="/LoginUser/Index">my account</a>
+                <a href="/ShoppingCart/ShowCart">my order</a>
+                <a href="/Favourite/ShowFavourite">my favourite</a>
+            </div>
+
+            <div class="box">
+                <h3>locations</h3>
+                <a href="#">TP. Hồ Chí Minh</a>
+                <a href="#">Hà Nội</a>
+                <a href="#">Đà Lạt</a>
+                <a href="#">Thừa Thiên Huế</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+84-329-343-390</a>
+                <a href="#">cake@gmail.com</a>
+                <a href="#">828 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh.</a>
+                <img src="~/images/1.png" alt="">
+            </div>
+        </div>
+
+        <div class="credit"><span>C A K E </span>- Không chỉ ngon mà còn phải đẹp.</div>
+    </section>
+</body>
+</html>

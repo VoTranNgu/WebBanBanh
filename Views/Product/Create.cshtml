@@ -1,0 +1,109 @@
+﻿@model DoAnCuoiKi.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/mystyle.css" rel="stylesheet" />
+<header>
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="#" class="logo">Savor & Sweet<span>.</span></a>
+    <nav class="navbar">
+        <a href="/SweetShop/trangchu#home">Home</a>
+        <a href="/SweetShop/trangchu#about">About</a>
+        <a href="/SweetShop/trangchu#menu">Hot</a>
+        <a href="/SweetShop/trangchu#review">Review</a>
+        <a href="/SweetShop/trangchu#contact">Contact</a>
+
+    </nav>
+    <div class="icon">
+        <a href="/Favourite/ShowFavourite"><i class='bx bxs-heart'></i></a>
+        <a href="/ShoppingCart/ShowCart"><i class='bx bx-shopping-bag'></i></a>
+        <a href="/LoginUser/Index"><i class='bx bxs-user'></i></a>
+        <a href="@Url.Action("LogOutUser","LoginUser")"><img src="~/images/out.png" /></a>
+
+    </div>
+</header>
+<h1 class="heading"> Thêm mới <span> sản phẩm</span> </h1>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table-bordered">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.NamePro)</td>
+            <td>@Html.EditorFor(Model => Model.NamePro)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Price)</td>
+            <td>@Html.EditorFor(Model => Model.Price)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Category)</td>
+            <td>
+                @{ Html.RenderAction("SelectCate", "Product");
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.DecriptionPro)</td>
+            <td>@Html.EditorFor(Model => Model.DecriptionPro)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.ImagePro)</td>
+            <td>
+                <img src="@Url.Content(Model.ImagePro)" height="150" width="150" id="previewImg" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+                <input type="submit" value="Tạo Mới" />
+            </td>
+        </tr>
+    </table>
+}
+
+<section class="footer">
+    <hr color="black" width=auto size="5px" align="center" />
+    <div class="box-container">
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="web.html">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">hot</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+            <a href="/Product/Index">menu</a>
+
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="/LoginUser/Index">my account</a>
+            <a href="/ShoppingCart/ShowCart">my order</a>
+            <a href="/Favourite/ShowFavourite">my favourite</a>
+        </div>
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">TP. Hồ Chí Minh</a>
+            <a href="#">Hà Nội</a>
+            <a href="#">Đà Lạt</a>
+            <a href="#">Thừa Thiên Huế</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+84-329-343-390</a>
+            <a href="#">cake@gmail.com</a>
+            <a href="#">828 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh.</a>
+            <img src="~/images/1.png" alt="">
+        </div>
+    </div>
+
+    <div class="credit"><span>C A K E </span>- Không chỉ ngon mà còn phải đẹp.</div>
+
+
+</section>
+

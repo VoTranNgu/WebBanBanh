@@ -1,0 +1,116 @@
+﻿@*@model IEnumerable<DoAnCuoiKi.Models.Product>*@
+@using DoAnCuoiKi.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+<style>
+    #div-ds{
+        text-align:center;
+        background-color: forestgreen;
+        height: 50px;
+        border-radius: 20px 20px 0 0;
+    }
+    .MenuPage li{
+        display:inline;
+        padding: 10px;
+    }
+</style>
+<link href="~/Content/mystyle.css" rel="stylesheet" />
+<header>
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="#" class="logo">Savor & Sweet<span>.</span></a>
+    <nav class="navbar">
+        <a href="/SweetShop/trangchu#home">Home</a>
+        <a href="/SweetShop/trangchu#about">About</a>
+        <a href="/SweetShop/trangchu#menu">Hot</a>
+        <a href="/SweetShop/trangchu#review">Review</a>
+        <a href="/SweetShop/trangchu#contact">Contact</a>
+
+    </nav>
+    <div class="icon">
+        <a href="/Favourite/ShowFavourite"><i class='bx bxs-heart'></i></a>
+        <a href="/ShoppingCart/ShowCart"><i class='bx bx-shopping-bag'></i></a>
+        <a href="/LoginUser/Index"><i class='bx bxs-user'></i></a>
+        <a href="@Url.Action("LogOutUser","LoginUser")"><img src="~/images/out.png" /></a>
+
+    </div>
+</header>
+
+<h1 class="heading"><span>Menu</span> </h1>
+<div class="container">
+    <div class="row">
+        @foreach (var pro in Model)
+        {
+
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3" style="padding:40px">
+
+                <div class="card-pro">
+
+                    <p>@Html.DisplayFor(Model => pro.ProductID)</p>
+                </div>
+                <img src="@Url.Content(pro.ImagePro)" height="300" width="300" />
+                <p>@Html.DisplayFor(Model => pro.NamePro)</p>
+                <p>@Html.DisplayFor(Model => pro.Price)</p>
+                <a href="/ShoppingCart/AddToCart/@pro.ProductID" class="btn btn-default">Mua</a>
+                <a href="/Favourite/AddToFavourite/@pro.ProductID" class="btn btn-default">Yêu thích</a>
+
+
+            </div>
+        }
+    </div>
+    Trang &ensp;    @(Model.PageCount<Model.PageNumber ? 0 :Model.PageNumber)&ensp;    / &ensp;    @Model.PageCount
+    <div class="MenuPage">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+    </div>
+</div>
+
+<section class="footer">
+    <hr color="black" width=auto size="5px" align="center" />
+    <div class="box-container">
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="web.html">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">hot</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+            <a href="/Product/Index">menu</a>
+
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="/LoginUser/Index">my account</a>
+            <a href="/ShoppingCart/ShowCart">my order</a>
+            <a href="/Favourite/ShowFavourite">my favourite</a>
+        </div>
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">TP. Hồ Chí Minh</a>
+            <a href="#">Hà Nội</a>
+            <a href="#">Đà Lạt</a>
+            <a href="#">Thừa Thiên Huế</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+84-329-343-390</a>
+            <a href="#">cake@gmail.com</a>
+            <a href="#">828 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh.</a>
+            <img src="~/images/1.png" alt="">
+        </div>
+    </div>
+
+    <div class="credit"><span>C A K E </span>- Không chỉ ngon mà còn phải đẹp.</div>
+
+
+</section>
+
+

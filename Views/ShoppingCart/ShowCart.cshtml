@@ -1,0 +1,132 @@
+﻿@model DoAnCuoiKi.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/mystyle.css" rel="stylesheet" />
+<link href="~/Content/bootstrap5/bootstrap.css" />
+<header>
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="#" class="logo">Savor & Sweet<span>.</span></a>
+    <nav class="navbar">
+        <a href="/SweetShop/trangchu#home">Home</a>
+        <a href="/SweetShop/trangchu#about">About</a>
+        <a href="/SweetShop/trangchu#menu">Hot</a>
+        <a href="/SweetShop/trangchu#review">Review</a>
+        <a href="/SweetShop/trangchu#contact">Contact</a>
+
+    </nav>
+    <div class="icon">
+        <a href="/Favourite/ShowFavourite"><i class='bx bxs-heart'></i></a>
+        <a href="/ShoppingCart/ShowCart"><i class='bx bx-shopping-bag'></i></a>
+        <a href="/LoginUser/Index"><i class='bx bxs-user'></i></a>
+        <a href="@Url.Action("LogOutUser","LoginUser")"><img src="~/images/out.png" /></a>
+
+    </div>
+</header>
+
+<section class="Shopping" id="cart">
+    <div class="mx-auto">
+        <h1 class="heading"> Your <span>Cart</span> </h1>
+        @if (Model != null)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm </th>
+                        <th>Hình sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        decimal total = item._quantity * (decimal)item._product.Price.Value;
+                        <tr>
+                            <td>@Html.DisplayFor(model => item._product.NamePro)</td>
+                            <td><img src="@Url.Content(item._product.ImagePro)" height="50" width="50" /></td>
+                            <td>@Html.DisplayFor(model => item._product.Price)  </td>
+                            <td>
+                                @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
+                                {
+                                    <input type="hidden" value="@item._product.ProductID" name="idPro" />
+                                    <input type="number" value="@item._quantity" name="cartQuantity" />
+                                    <input type="submit" value="Update" />
+                                }
+                            </td>
+                            <td>@total</td>
+                            <td>
+                                <a href="/ShoppingCart/RemoveCart/@item._product.ProductID">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        }
+        else
+        {
+            @Html.Partial("EmptyCart")
+        }
+
+
+    </div>
+
+    <a href="@Url.Action("Index","Product")" class="btn"> Tiếp tục mua hàng </a>
+        <a href="/ShoppingCart/Form" class="btn" style="text-align:center"> Thanh toán </a>
+        <a href="/SweetShop/trangchu" class="btn" style="text-align:right"> Về trang chủ </a>
+
+    <br />
+    <br />
+</section>
+
+    
+<section class="footer">
+    <hr color="black" width=auto size="5px" align="center" />
+    <div class="box-container">
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="/SweetShop/trangchu#home">home</a>
+            <a href="/SweetShop/trangchu#about">about</a>
+            <a href="/SweetShop/trangchu#menu">hot</a>
+            <a href="/SweetShop/trangchu#review">review</a>
+            <a href="/SweetShop/trangchu#contact">contact</a>
+            <a href="/Product/Index">menu</a>
+
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="/LoginUser/Index">my account</a>
+            <a href="/ShoppingCart/ShowCart">my order</a>
+            <a href="/Favourite/ShowFavourite">my favourite</a>
+        </div>
+
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">TP. Hồ Chí Minh</a>
+            <a href="#">Hà Nội</a>
+            <a href="#">Đà Lạt</a>
+            <a href="#">Thừa Thiên Huế</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+84-329-343-390</a>
+            <a href="#">cake@gmail.com</a>
+            <a href="#">828 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh.</a>
+            <img src="~/images/1.png" alt="">
+        </div>
+    </div>
+
+    <div class="credit"><span>C A K E </span>- Không chỉ ngon mà còn phải đẹp.</div>
+
+
+</section>
+
+

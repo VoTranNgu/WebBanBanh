@@ -1,0 +1,49 @@
+﻿@model DoAnCuoiKi.Models.AdminUser
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<title>Đăng Nhập</title>
+<link href="~/Content/loginstyle.css" rel="stylesheet" />
+<link href="~/Content/bootstrap5/bootstrap.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "FormLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<div class="m-4">
+
+    <div class="signup">
+        <h1>Đăng nhập</h1>
+        <br/>
+        @using (Html.BeginForm("LoginAcount", "LoginUser"))
+        {
+            @Html.AntiForgeryToken()
+            <button class="signup-social">
+                <img src="~/image/google.png" height="20px" width="20px" alt="google_login" />
+                <span class="signup-social-text">Sign in with Google</span>
+            </button>
+            <div class="signup-or"><span><b>Hoặc</b></span></div>
+            <form action="#" class="signup-form" autocomplete="off">
+                <label for="NameUser" class="signup-label">Tài khoản: &nbsp;&nbsp;</label>
+                <span class="border border-dark" style="border-radius: 14px">@Html.TextBoxFor(Model => Model.NameUser, new { style = "
+field -validation-error" })</span>
+                @Html.ValidationMessageFor(Model => Model.NameUser)
+                <br /><br />
+                <label for="PasswordUser" class="signup-label">Mật khẩu: &nbsp;&nbsp;</label>
+                @Html.TextBoxFor(Model => Model.PasswordUser)
+                @Html.ValidationMessageFor(Model => Model.PasswordUser)
+                <br />
+                <br />
+                <button class="signup-submit">Đăng nhập</button>
+            </form>
+            <p class="signup-already">
+                <span>Bạn chưa có tài khoản ?</span>
+                <a href="/LoginUser/RegisterUser" class="signup-login-link">Đăng ký ngay!</a>
+            </p>
+        }
+    </div>
+</div>
